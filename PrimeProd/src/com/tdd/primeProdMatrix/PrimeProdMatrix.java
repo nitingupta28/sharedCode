@@ -41,21 +41,18 @@ public class PrimeProdMatrix {
 		
 		int row, col, l = 1, n;
 		n = primeRowColArray.length;
-		if (n == 1){
-		}
-		else {
-			for(row = 1; row < n; row++) {
-	            for(col = l; col < n; col++) {
-	                if (row == col){
-	                	primeRowColArray[row][col] = primeRowColArray[row][0]*primeRowColArray[0][col];
-	                }
-	                else {
-	                	primeRowColArray[row][col] = primeRowColArray[col][row] = primeRowColArray[row][0]*primeRowColArray[0][col];
-	                }
-	            }
-	            l++;
-	        }
-		}
+		
+		for(row = 1; row < n; row++) {
+			for(col = l; col < n; col++) {
+				if (row == col){
+					primeRowColArray[row][col] = primeRowColArray[row][0]*primeRowColArray[0][col];
+				}
+				else {
+					primeRowColArray[row][col] = primeRowColArray[col][row] = primeRowColArray[row][0]*primeRowColArray[0][col];
+				}
+			}
+			l++;
+		}	
 		
 		return primeRowColArray;
 	}
