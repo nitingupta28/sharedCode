@@ -1,8 +1,13 @@
 package com.tdd.primeProdMatrix;
 
+//import java.util.Scanner;
+
 public class PrimeProdMatrix {
 
 	public boolean isPrime(int num) {
+		if (num == 0 || num == 1) {
+			return false;
+		}
 		for (int i = 2; i <= Math.sqrt(num); i++) {
 			if (num%i == 0) {
 				return false;
@@ -13,8 +18,11 @@ public class PrimeProdMatrix {
 	}
 
 	public int[][] primeArrayRowAndCol(int n) {
-		int num = 3, k = 0;
+		if (n == 0) {
+			return null;
+		}
 		
+		int num = 3, k = 0;		
         int[][] primeRowCol = new int[n][n];
         primeRowCol[0][0] = 2; 
         
@@ -30,6 +38,7 @@ public class PrimeProdMatrix {
 	}
 
 	public int[][] multiplyPrime(int[][] primeRowColArray) {
+		
 		int row, col, l = 1, n;
 		n = primeRowColArray.length;
 		if (n == 1){
@@ -52,15 +61,23 @@ public class PrimeProdMatrix {
 	}
 	
 	public static void main(String args[]) {
-		int n = 10;
+		
+		int n;
+		/*Scanner in = new Scanner(System.in);
+	    System.out.println("Enter the value of n:");
+	    n = in.nextInt();*/
+	      
+		n = 10;
 		PrimeProdMatrix p = new PrimeProdMatrix();
 		int[][] primeRowCol2DArray = p.primeArrayRowAndCol(n);
 		int[][] primeProdMatrix = p.multiplyPrime(primeRowCol2DArray);
-		p.displayMatrix(primeProdMatrix);		
-		
+		p.displayMatrix(primeProdMatrix);			
 	}
 
-	private void displayMatrix(int[][] primeProdMatrix) {
+	public void displayMatrix(int[][] primeProdMatrix) {
+		if (primeProdMatrix == null) {
+			System.out.print("No elements to be displayed");
+		}
 		for(int[] row : primeProdMatrix) {
             for (int i : row) {
                 System.out.print(i + "\t");

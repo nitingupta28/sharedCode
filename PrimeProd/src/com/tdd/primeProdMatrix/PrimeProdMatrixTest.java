@@ -14,6 +14,11 @@ public class PrimeProdMatrixTest {
 	}
 	
 	@Test
+	public void testOneIsNotPrime() throws Exception {
+		assertFalse(testObj.isPrime(1));
+	}
+	
+	@Test
 	public void testIsPrime() throws Exception {
 		assertTrue(testObj.isPrime(3));
 	}
@@ -21,6 +26,13 @@ public class PrimeProdMatrixTest {
 	@Test
 	public void testIsNotPrime() throws Exception {
 		assertFalse(testObj.isPrime(4));
+	}
+	
+	@Test
+	public void testGenerateNoPrimeArrayBasedOnNumZero() throws Exception {
+		int[][] expectedArray = null;
+		int[][] actualArray = testObj.primeArrayRowAndCol(0);
+		assertArrayEquals(expectedArray,actualArray);
 	}
 	
 	@Test
